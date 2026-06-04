@@ -13,6 +13,8 @@ import json
 from pathlib import Path
 import random
 import threading
+import os
+import tempfile
 
 router = APIRouter()
 
@@ -53,7 +55,11 @@ async def get_random_question(category: str | None = None) -> InterviewQuestion:
 # 2️⃣ Habit Tracking
 # ---------------------------------------------------------------------------
 # Simple JSON persistence – stored in `backend/data/habits.json`.
-_HABIT_FILE = Path(__file__).parent.parent / "data" / "habits.json"
+if os.environ.get("VERCEL") or os.environ.get("VERCEL_ENV"):
+    _HABIT_FILE = Path(tempfile.gettempdir()) / "habits.json"
+else:
+    _HABIT_FILE = Path(__file__).parent.parent / "data" / "habits.json"
+
 _HABIT_LOCK = threading.Lock()
 
 class HabitEntry(BaseModel):
