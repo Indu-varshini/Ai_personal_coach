@@ -1,0 +1,19 @@
+node_modules/
+frontend/node_modules/
+/dist/
+.DS_Store
+.env
+.env.local
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.idea/
+.vscode/
+# Logs
+logs/
+# Dependency directories
+**/node_modules/
+# Build output
+**/dist/
+# Vercel deployment files
+.vercel/
