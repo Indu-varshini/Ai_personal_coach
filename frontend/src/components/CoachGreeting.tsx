@@ -6,7 +6,7 @@ const CoachGreeting: React.FC = () => {
   const fetchGreeting = async () => {
     setLoading(true);
     try {
-      const resp = await fetch('http://127.0.0.1:8000/');
+      const resp = await fetch('/api/');
       const data = await resp.json();
       setGreeting(data.message || 'No message');
     } catch (e) {

@@ -45,7 +45,7 @@ const InterviewPrep: React.FC = () => {
     setShowTips(false);
     
     try {
-      let url = 'http://127.0.0.1:8000/interview/question';
+      let url = '/api/interview/question';
       if (selectedCat) {
         url += `?category=${encodeURIComponent(selectedCat)}`;
       }

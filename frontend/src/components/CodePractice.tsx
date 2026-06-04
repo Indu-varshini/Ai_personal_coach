@@ -49,7 +49,7 @@ const CodePractice: React.FC = () => {
       setLoading(true);
       setError('');
       try {
-        const resp = await fetch('http://127.0.0.1:8000/coach/questions');
+        const resp = await fetch('/api/coach/questions');
         if (!resp.ok) throw new Error('Failed to load questions');
         const data = await resp.json();
         setQuestions(data);
@@ -81,7 +81,7 @@ const CodePractice: React.FC = () => {
     setSubmitting(true);
     setError('');
     try {
-      const resp = await fetch('http://127.0.0.1:8000/coach/feedback', {
+      const resp = await fetch('/api/coach/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

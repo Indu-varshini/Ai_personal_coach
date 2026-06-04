@@ -16,7 +16,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const checkServer = async () => {
       try {
-        const resp = await fetch('http://127.0.0.1:8000/');
+        const resp = await fetch('/api/');
         if (resp.ok) {
           const data = await resp.json();
           setGreeting(data.message || 'Hello, I am your AI Coach!');

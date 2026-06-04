@@ -20,7 +20,7 @@ const HabitTracker: React.FC = () => {
     setLoading(true);
     setError('');
     try {
-      const resp = await fetch('http://127.0.0.1:8000/habit/history');
+      const resp = await fetch('/api/habit/history');
       if (!resp.ok) throw new Error('Failed to load habit history');
       const data = await resp.json();
       
@@ -50,7 +50,7 @@ const HabitTracker: React.FC = () => {
     setError('');
     setSuccess('');
     try {
-      const resp = await fetch('http://127.0.0.1:8000/habit/log', {
+      const resp = await fetch('/api/habit/log', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
